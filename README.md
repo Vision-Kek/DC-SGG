@@ -1,4 +1,4 @@
-# Domain-Conditioned Scene Graps for State-Grounded Task Planning
+# Domain-Conditioned Scene Graphs for State-Grounded Task Planning
 
 Code for [Domain-Conditioned Scene Graphs for State-Grounded Task Planning](https://arxiv.org/abs/2504.06661) (IROS 2025)
 
@@ -84,7 +84,7 @@ Consider viewing them instead by setting `print_credits: True` in `config.yaml`.
 
 ```BibTeX
 @article{herzog2025domainconditioned,
-      title={Domain-Conditioned Scene Graps for State-Grounded Task Planning}, 
+      title={Domain-Conditioned Scene Graphs for State-Grounded Task Planning}, 
       author={Jonas Herzog and Jiangpin Liu and Yue Wang},
       journal={arXiv preprint arXiv:2504.06661},
       year={2025}
