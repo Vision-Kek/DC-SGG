@@ -1,0 +1,6 @@
+(place_in b_bot tomato1 bowl)
+(pick b_bot cucumber counter)
+(place b_bot cucumber cutting_board)
+(slice b_bot cucumber knife cutting_board)
+(pick b_bot cucumber cutting_board)
+(place_in b_bot cucumber bowl)

@@ -1,0 +1,6 @@
+(place_in b_bot carrot1 bowl)
+(pick b_bot tomato counter)
+(place b_bot tomato cutting_board)
+(slice b_bot tomato knife cutting_board)
+(pick b_bot tomato cutting_board)
+(place_in b_bot tomato bowl)

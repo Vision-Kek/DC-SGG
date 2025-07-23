@@ -1,0 +1,6 @@
+(pick_up red_block arm)
+(stack red_block purple_block arm)
+(pick_up green_block arm)
+(stack green_block pink_block arm)
+(pick_up yellow_block arm)
+(stack yellow_block green_block arm)

@@ -1,0 +1,8 @@
+(pick_up yellow_block bot)
+(stack yellow_block green_block bot)
+(unstack pink_block red_block bot)
+(put_down pink_block bot)
+(pick_up red_block bot)
+(stack red_block yellow_block bot)
+(pick_up pink_block bot)
+(stack pink_block red_block bot)

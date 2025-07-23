@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dcsgg"
+version = "0.1"
+description = "Domain-Conditioned Scene Graphs for State-Grounded Task-Planning"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "hydra-core>=1.3",
+    "numpy>=2.3",
+    "omegaconf>=2.3",
+    "openai>=1.97",
+    "pandas>=2.3",
+    "Pillow>=11.3",
+    "torch>=2.7",
+    "torchvision>=0.22",
+    "tqdm>=4.67",
+    "transformers>=4.53",
+    "unified_planning[fast-downward]>=1.2"
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

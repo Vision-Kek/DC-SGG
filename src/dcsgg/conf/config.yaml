@@ -1,0 +1,81 @@
+domain: ??? # (cooking | blocksworld | hanoi)
+result_folder: my_results # modify this if you want to get/measure own results
+
+##### Yor main customization above this line #####
+
+repo_root: '../..' # if you run into path problems, set this to /foo/bar/DC-SGG
+result_dir: "${repo_root}/results/${result_folder}/${domain.dir_name}" 
+
+dataset:
+  _target_: dcsgg.dataset.ProDGv.ProDGvDataset
+  base_path: "${repo_root}/data"
+  domain: ${domain}
+
+data_dir: "${dataset.base_path}/${domain.dir_name}" 
+
+goal_parsing:
+  _target_: dcsgg.core.goal_parsing.GoalParser
+  llm:
+    _target_: dcsgg.models.llm.LLM # you can change LLM to FakeLLM if you don't want to use LLM temporarily
+    api_key: ${oc.env:API_KEY} # set with 'export API_KEY='
+    base_url: https://api.openai.com/v1 # or https://openrouter.ai/api/v1
+    model_identifier: openai/gpt-4o-mini
+  verbosity: 0
+  out_dir: "${result_dir}/goal_stubs"
+
+object_detection:
+  _target_: dcsgg.core.object_detection.ObjectDetection
+  model:
+    _target_: dcsgg.models.gdino.GDINO
+    box_thresh: 0.25
+    device: auto
+    verbosity: 0
+  dinox_detection_dir: "${result_dir}/dinox-det"
+  rec_detection_dir: "${result_dir}/objdet"
+  verbosity: 0
+  out_dir: "${result_dir}/object_stubs"
+
+ss_mapping:
+  _target_: dcsgg.core.ss_mapping.SSMapper
+  verbosity: 0
+  out_dir: "${result_dir}/init_stubs"
+
+planning:
+  assemble_first: True
+  print_credits: False
+  verbosity: 0
+  val_bin_pth: "${repo_root}/bin/Validate"
+  problempddl_out_dir: "${result_dir}/pddl_problems"
+  plan_out_dir: "${result_dir}/plans"
+
+eval:
+  domain_pth: "${data_dir}/domain.pddl" 
+  problem_dir: ${planning.problempddl_out_dir}
+  val_bin_pth: ${planning.val_bin_pth}
+  prec_rec:
+    _target_: dcsgg.scripts.state_eval.precision_recall
+    objdet_pred_dir: ${object_detection.rec_detection_dir}
+    init_stub_pred_dir: ${ss_mapping.out_dir}
+    dataset_obj: ${dataset}
+  r_problem:
+    _target_: dcsgg.scripts.planning_eval.calc_rproblem
+    domain_pth: ${eval.domain_pth}
+    generated_problem_dir: ${eval.problem_dir}
+    val_bin_pth: ${eval.val_bin_pth}
+  r_plan:
+    _target_: dcsgg.scripts.planning_eval.calc_rplan
+    domain_pth: ${eval.domain_pth}
+    generated_problem_dir: ${eval.problem_dir}
+    plans_dir: ${planning.plan_out_dir}
+  r_success:
+    _target_: dcsgg.scripts.planning_eval.calc_rsuccess
+    domain_pth: ${eval.domain_pth}
+    generated_problem_dir: ${eval.problem_dir}
+    plans_dir: ${planning.plan_out_dir}
+    domain_name: ${domain.dir_name}
+    dataset_obj: ${dataset} 
+    pred_box_dir: ${object_detection.rec_detection_dir}
+
+hydra:
+  job:
+    chdir: false 

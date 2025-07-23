@@ -1,0 +1,5 @@
+(pick a_bot carrot counter)
+(place a_bot carrot cutting_board)
+(slice b_bot carrot knife cutting_board)
+(pick a_bot carrot cutting_board)
+(place_in a_bot carrot bowl)

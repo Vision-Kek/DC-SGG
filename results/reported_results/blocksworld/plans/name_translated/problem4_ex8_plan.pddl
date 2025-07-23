@@ -1,0 +1,6 @@
+(pick_up blue_block bot)
+(stack blue_block purple_block bot)
+(unstack yellow_block red_block bot)
+(stack yellow_block blue_block bot)
+(pick_up orange_block bot)
+(stack orange_block yellow_block bot)

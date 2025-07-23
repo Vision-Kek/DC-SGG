@@ -1,0 +1,6 @@
+(place_in robotic_gripper1 vegetable1 bowl)
+(pick robotic_gripper1 cucumber black_tray)
+(place robotic_gripper1 cucumber wooden_board)
+(slice robotic_gripper1 cucumber chopping_knife wooden_board)
+(pick robotic_gripper1 cucumber wooden_board)
+(place_in robotic_gripper1 cucumber bowl)

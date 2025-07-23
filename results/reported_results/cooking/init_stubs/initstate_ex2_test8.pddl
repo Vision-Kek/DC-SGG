@@ -1,0 +1,9 @@
+(:init
+    (at bowl black_tray)
+    (at cucumber black_tray)
+    (at vegetable1 wooden_board)
+    (carry robotic_gripper vegetable1)
+    (carry robotic_gripper1 chopping_knife)
+    (carry robotic_gripper1 vegetable1)
+    (carry robotic_gripper1 vegetable2)
+)

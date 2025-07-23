@@ -1,0 +1,5 @@
+(move green_disk left_peg right_peg)
+(move green_disk right_peg middle_peg)
+(move pink_disk left_peg right_peg)
+(move blue_disk left_peg right_peg)
+(move green_disk middle_peg right_peg)

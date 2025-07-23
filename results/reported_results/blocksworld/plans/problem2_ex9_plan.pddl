@@ -1,0 +1,8 @@
+(unstack pink_block purple_block arm)
+(put_down pink_block arm)
+(unstack purple_block blue_block arm)
+(stack purple_block pink_block arm)
+(pick_up blue_block arm)
+(stack blue_block purple_block arm)
+(pick_up red_block arm)
+(stack red_block blue_block arm)

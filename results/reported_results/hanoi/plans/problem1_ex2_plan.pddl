@@ -1,0 +1,7 @@
+(move colored_disk2 wooden_stick2 rightmost_peg)
+(move colored_disk wooden_stick2 wooden_stick1)
+(move colored_disk2 rightmost_peg wooden_stick1)
+(move colored_disk1 wooden_stick2 rightmost_peg)
+(move colored_disk2 wooden_stick1 wooden_stick2)
+(move colored_disk wooden_stick1 rightmost_peg)
+(move colored_disk2 wooden_stick2 rightmost_peg)

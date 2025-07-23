@@ -1,0 +1,8 @@
+(place robotic_gripper chopping_knife black_tray)
+(pick robotic_gripper vegetable black_tray)
+(place robotic_gripper vegetable wooden_board)
+(pick robotic_gripper chopping_knife black_tray)
+(slice robotic_gripper vegetable chopping_knife wooden_board)
+(place robotic_gripper chopping_knife black_tray)
+(pick robotic_gripper vegetable wooden_board)
+(place_in robotic_gripper vegetable bowl)

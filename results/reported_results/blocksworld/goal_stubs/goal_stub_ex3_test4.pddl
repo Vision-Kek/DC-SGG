@@ -1,0 +1,1 @@
+(:goal (and (on orange_block yellow_block) (on yellow_block blue_block) (on blue_block purple_block) (on purple_block red_block) (clear orange_block) (clear red_block)))
